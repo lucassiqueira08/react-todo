@@ -1,12 +1,12 @@
 import React from "react";
 
-// import { Container } from './styles';
+import { Button, TextField } from '@material-ui/core'
 
 export default function TodoInput(props) {
   return (
-    <>
-      <input onChange={props.handleInput}></input>
-      <button onClick={props.handleAddTodo}>Adicionar Tarefa</button>
-    </>
+    <div className={props.classes.input}>
+       <TextField label='Digite a tarefa' onChange={props.handleInput} margin='normal'/>
+       <Button  color='primary' variant='contained' onClick={props.handleAddTodo}>Adicionar</Button>
+    </div>
   );
 }

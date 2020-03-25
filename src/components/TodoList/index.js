@@ -1,20 +1,30 @@
 import React from "react";
 
-// import { Container } from './styles';
+import {
+  List,
+  ListItem,
+  ListItemText,
+  ListItemSecondaryAction,
+  IconButton
+} from "@material-ui/core";
+import Delete from "@material-ui/icons/Delete";
 
 export default function TodoList(props) {
   return (
-    <>
-      <ul>
-        {props.todos.map(todo => (
-          <li key={todo.id}>
-            <span>{todo.name}</span>
-            <button onClick={() => props.handleRemoveTodo(todo.id)}>
-              Remover
-            </button>
-          </li>
-        ))}
-      </ul>
-    </>
+    <List>
+      {props.todos.map(todo => (
+        <ListItem key={todo.id}>
+          <ListItemText primary={todo.name} />
+          <ListItemSecondaryAction>
+            <IconButton
+              color="primary"
+              onClick={() => props.handleRemoveTodo(todo.id)}
+            >
+              {<Delete />}
+            </IconButton>
+          </ListItemSecondaryAction>
+        </ListItem>
+      ))}
+    </List>
   );
 }
